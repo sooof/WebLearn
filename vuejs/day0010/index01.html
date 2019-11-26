@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Vue入门</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2> {{ product }} are in stock.</h2>
+    </div>
+    <div id="root">
+      <!-- <h2> hello {{ msg }} </h2> -->
+      <!-- <div v-on:click="handleClick"> {{content}} </div> -->
+    </div>
+
+  </body>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="./vue.js"> </script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data:{
+        product: 'Boots'
+      }
+    })
+    new Vue({
+      el: '#root',
+      // template:'<h1 v-text="number"></h1>',
+      // template:'<h1 v-html="number"></h1>',
+      // data:{
+      //   msg: 'hello world',
+      //   number: 123
+      // }
+
+      /*
+      // template:'<h1 v-text="content"></h1>',
+      template:'<h1 v-html="content"></h1>',
+      data:{
+        content: "<h1>hello</h1>"
+      }*/
+      /*
+      template:'<div> {{content}} </div>',
+      data:{
+        content: "hello"
+      }*/
+
+      // template:'<div v-on:click="handleClick"> {{content}} </div>',
+      template:'<div @click="handleClick"> {{content}} </div>',
+      data:{
+        content: "hello"
+      },
+      methods: {
+        handleClick: function() {
+          this.content = "world"
+        }
+      }
+
+    })
+
+  </script>
+  </script>
+</html>

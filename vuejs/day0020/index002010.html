@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Vue入门</title>
+  </head>
+  <body>
+	<div id = "app">
+		{{ message }}
+	</div>
+	<div id = "app-2">
+			<span v-bind:title="message">
+				鼠标悬停几秒钟查看此处动态绑定的提示信息！
+			</span>
+	</div>
+  
+  </body>
+
+<!--引入vue库-->
+<!-- <script src='https://unpkg.com/vue/dist/vue.js'></script> -->
+<script src="./vue.js"> </script>
+<script>
+	var app = new Vue({
+		el:'#app',
+		data: {
+		message: 'hello vue!!'
+	}
+	})
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: '页面加载于 ' + new Date().toLocaleString()
+    }
+  })
+</script>
+
+</html>

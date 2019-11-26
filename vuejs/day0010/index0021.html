@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Vue入门</title>
+  </head>
+  <body>
+    <div id='app'>
+      <ul>
+        <li v-for = 'product in products'>
+            {{product.quantity}}  {{product.name}}
+            <!-- <span v-if="product.quantity === 0">
+            	- OUT OF STOCK
+            </span> -->
+        </li>
+      </ul>
+      <h2>Total Inventory: {{ totalProducts}}</h2>
+    </div>
+
+  </body>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="https://unpkg.com/vue"> </script>
+
+<!--引入vue库-->
+<script src='https://unpkg.com/vue/dist/vue.js'></script>
+<script>
+    const app = new Vue({
+        el:'#app',//'el'是元素（element）的缩写
+        data:{
+            products:[]
+        }//将数据放入一个对象
+        created(){
+    fetch('https://api.myjson.com/bins/yygci')//接口网址
+       .then(response => response.json())
+       .then(json=>{
+            this.products =json.products
+            // console.log(json);
+        })
+      }
+    })
+</script>
+
+</html>
