@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Vue To do list </title>
+  </head>
+  <body>
+    <div id="root">
+      <div>
+      <!-- <div v-bind:title="title"> hello world </div> -->
+      <!-- <div :title="title"> hello world </div> -->
+          <input v-model:value="inputValue" />
+          <button @click="handleSubmit">提交</button>
+      </div>
+      <!-- <p/> -->
+      <ul>
+        <!-- <li v-for="item of list" :key="item"> {{item}} </li> -->
+        <li v-for="(item, index) of list" :key="index"> {{item}} </li>
+
+      </ul>
+    </div>
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- <script src="./vue.js"> </script> -->
+  <script>
+
+    new Vue({
+      el: '#root',
+      data:{
+        // inputValue: "this is content."
+        inputValue: '',
+        list: []
+      },
+      methods: {
+        handleSubmit: function() {
+          this.list.push(this.inputValue),
+          this.inputValue = ''
+        }
+      }
+
+
+    })
+
+  </script>
+  </script>
+</html>

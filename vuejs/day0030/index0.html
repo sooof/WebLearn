@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Vue入门</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2> {{ product }} are in stock.</h2>
+    </div>
+    <div id="app1">
+      <!-- <h2> hello {{ msg }} </h2> -->{{a}}
+    </div>
+    <div id="root">
+      <!-- <h2> hello {{ msg }} </h2> -->
+    </div>
+  </body>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="./vue.js"> </script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data:{
+        product: 'Boots'
+      }
+    })
+    var data = {a:1};
+    var vm = new Vue({
+      el: '#app1',
+      // template:'<h1>hello t{{msg}}</h1>',
+      data:data
+    })
+    // vm.$data.a = "test"
+    // vm.$watch('a', function(newVal, oldVal){
+    //     console.console.log(newVal, oldVal);
+    // });
+
+    new Vue({
+      el: '#root',
+      template:'<h1>hello {{msg}}</h1>',
+      data:{
+        msg: 'hello world'
+      }
+    })
+
+
+  </script>
+  </script>
+</html>

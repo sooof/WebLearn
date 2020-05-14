@@ -1,6 +1,9 @@
 package main
 
-import "GoLearnEveryday/51cto/day0012/list"
+import (
+	aa "GoLearnEveryday/51cto/day0012/add"
+	"fmt"
+)
 
 //import "GoLearnEveryday/day1/list"
 // func List(n int) {
@@ -9,5 +12,9 @@ import "GoLearnEveryday/51cto/day0012/list"
 // 	}
 // }
 func main() {
-	list.List(6)
+	aa.Add()
+
+	fmt.Println(aa.Name)
+	fmt.Println(aa.Age)
+	// list.List(6)
 }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Vue v-if, v-show, v-for 指令 </title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <div v-if="show"> {{ product }} are in stock.</div> -->
+      <div v-show="show"> {{ product }} are in stock.</div>
+      <!-- <div v-if="show">hello world!!!</div> -->
+      <button @click="handleClick">toggle</button>
+	  <ul>
+	  	<!-- <li v-for="item of list" :key="item"> {{item}} </li> -->
+      <li v-for="(item, index) of list" :key="index"> {{item}} </li>
+
+	  </ul>
+    </div>
+    <div id="root">
+      <!-- <div v-bind:title="title"> hello world </div> -->
+      <div :title="title"> hello world </div>
+          <input v-model:value="content" />
+          <div>{{ content }}</div>
+      <p/>
+      <!-- <input :value="content" /> -->
+          姓：<input v-model:value="firstName" />
+          <p/>
+          名：<input v-model:value="lastName" />
+          <!-- <div>{{ firstName }} {{ lastName }}</div> -->
+          <div>{{ fullName }}</div>
+          <div>{{ count }}</div>
+    </div>
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- <script src="./vue.js"> </script> -->
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data:{
+        product: 'Boots',
+        // show: ture//
+        show: true,
+        list: [1, 2, 3, 4]
+      },
+      methods: {
+        handleClick: function() {
+          this.show = !this.show;
+        }
+      }
+    })
+
+    new Vue({
+      el: '#root',
+      data:{
+        firstName: 'firstName',
+        lastName: 'lastName',
+        count: 0,
+        title: "this is hello world!",
+        content: "this is content."
+      },
+      computed:{
+        fullName: function() {
+           return this.firstName + ' ' + this.lastName
+        }
+      },
+      watch: {
+        /*
+        firstName: function() {
+          this.count ++
+        },
+        lastName: function() {
+          this.count ++
+        }*/
+        fullName: function() {
+          this.count ++
+        },
+      }
+    })
+
+  </script>
+  </script>
+</html>
