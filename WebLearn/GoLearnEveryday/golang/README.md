@@ -6,6 +6,12 @@
 
 使用gin 部署vue前端服务的 HelloWorld
 
+###### 0X02 --- beego：
+
+* Hello:
+
+使用beego 部署vue前端服务的 hello
+
 * bootstrapvue-demo
 
 使用gin 和 bootstrapvue部署vue前端服务的hellworld版 bootstrapvue-demo
@@ -13,12 +19,7 @@
 
 ###### 0X02 --- beego：
 
-* Hello:
-
-使用beego 部署vue前端服务的 hello
-
-
-###### 0X03 --- 使用go 部署vue前端服务：
+###### 0X02 --- 使用go 部署vue前端服务：
 
 
 为什么不直接采用npm run dev
