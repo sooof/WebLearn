@@ -1,11 +1,20 @@
 # WebLearn
 
-###### 0X02 --- gin：
+###### 0X01 --- gin：
 
-```
-使用go 部署vue前端服务
+*  HelloWorld
+
+使用gin 部署vue前端服务的 HelloWorld
+
+###### 0X02 --- beego：
+
+* Hello:
+
+使用beego 部署vue前端服务的 hello
 
 
+
+###### 0X02 --- 使用go 部署vue前端服务：
 
 
 为什么不直接采用npm run dev
@@ -20,6 +29,7 @@ go
 因为不是入门级文章，上述的环境准备不多做介绍。
 
 
+```
 
 * vue init webpack projectx 省略一系列package.json的设置
 * cd projectx
@@ -48,9 +58,3 @@ func main(){
 * go run main.go
 * 浏览器输入http:localhost:8080/hello/
 ```
-
-###### 0X02 --- beego：
-
-* Hello:
-
-使用beego 部署vue前端服务的 hello
