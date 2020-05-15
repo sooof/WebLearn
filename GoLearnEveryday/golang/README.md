@@ -6,6 +6,11 @@
 
 使用gin 部署vue前端服务的 HelloWorld
 
+```
+npm run dev
+
+```
+
 * bootstrapvue-demo
 
 使用gin 和 bootstrapvue部署vue前端服务的hellworld版 bootstrapvue-demo
@@ -17,8 +22,58 @@
 
 使用beego 部署vue前端服务的 hello
 
+* app
 
-###### 0X03 --- 使用go 部署vue前端服务：
+使用beego 部署vue前端服务的 hello, 测试 c.Ctx.WriteString
+
+* app001
+
+使用beego 部署vue前端服务的 hello, 测试 各种输出.
+
+
+###### 0X03 --- vue：
+
+* project000
+
+使用vue-cli 前端服务的
+
+
+```run 
+npm run dev/serve
+
+
+```
+
+###### 0X03 --- 使用gin：
+
+```
+go run main.go
+```
+
+###### 0X04 --- 使用beego：
+
+
+```
+bee new app
+
+bee run
+
+```
+
+###### 0X05 --- 使用vue：
+
+
+```
+vue create calculator
+vue create bootstrapvue-demo
+npm install bootstrap-vue bootstrap axios
+npm run build //产出的indext.html和资源会被编译打包进dist文件夹
+
+npm run dev
+
+```
+
+###### 0X06 --- 使用beego 部署vue前端服务的 hello:
 
 
 为什么不直接采用npm run dev
@@ -29,7 +84,7 @@ node
 vue
 vue-cli
 go
-
+Â
 因为不是入门级文章，上述的环境准备不多做介绍。
 
 
