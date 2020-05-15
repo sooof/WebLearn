@@ -35,12 +35,17 @@ npm run dev
 
 * project000
 
-使用vue-cli 前端服务的
+使用vue hellworld
 
+* project001
 
-```run 
-npm run dev/serve
+使用vue-cli 前端服务的 todolist
 
+```run
+npm install
+npm run dev
+
+(npm run dev/serve)
 
 ```
 
