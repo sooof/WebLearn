@@ -7,5 +7,8 @@ import (
 )
 
 func main() {
+	// beego.BConfig.WebConfig.ViewsPath = "dist"
+
+	//beego.SetStaticPath
 	beego.Run()
 }

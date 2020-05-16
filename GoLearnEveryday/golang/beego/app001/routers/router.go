@@ -7,5 +7,8 @@ import (
 )
 
 func init() {
+	// beego.DelStaticPath("/static")
+	// beego.SetStaticPath("//", "dist")
+	// beego.SetStaticPath("//", "static")
 	beego.Router("/", &controllers.MainController{})
 }
