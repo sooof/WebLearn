@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"beego/app001/golibtest"
+
 	"github.com/astaxie/beego"
 )
 
@@ -41,4 +43,11 @@ func (c *MainController) Get() {
 	c.Data["Html"] = "<div> hello beego</div>"
 
 	c.Data["Pipe"] = "<div> hello beego</div>"
+
+	hmrand := golibtest.Mrand01tohtml()
+	c.Data["Hmrand"] = hmrand
+
+	hmrandseed := golibtest.Mrandseed01tohtml()
+	c.Data["Hmrandseed"] = hmrandseed
+
 }
