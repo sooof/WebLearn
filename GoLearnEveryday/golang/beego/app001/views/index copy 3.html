@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang=en>
+  
+  <head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <link rel=icon href=/static/favicon.ico>
+    <title>
+      helloworld
+    </title>
+    <link href=/static/css/app.fb0c6e1c.css rel=preload as=style>
+    <link href=/static/js/app.19d7e441.js rel=preload as=script>
+    <link href=/static/js/chunk-vendors.f50f9912.js rel=preload as=script>
+    <link href=/static/css/app.fb0c6e1c.css rel=stylesheet>
+  </head>
+  
+  <body>
+    <noscript>
+      <strong>
+        We're sorry but helloworld doesn't work properly without JavaScript enabled.
+        Please enable it to continue.
+      </strong>
+    </noscript>
+    <div id=app>
+    </div>
+    <div>
+        {{if .TrueCond}}
+        true condition
+        {{end}}
+      </div>
+      <div>
+        {{if .FalseCond}}
+        false condition
+        {{end}}
+      </div>
+      <div>
+        {{.User.Name}};{{.User.Age}};{{.User.Sex}};
+      </div>
+  
+      <div>
+        {{with .User}}
+        {{.Name}};{{.Age}};{{.Sex}};
+        {{end}}
+      </div>
+      <div>
+        {{.Nums}}
+      </div>
+  
+      <div>
+        {{range .Nums}}
+        {{.}}
+        {{end}}
+      </div>
+      <div>
+        {{.Tplvar}}
+      </div>
+      {{.Html}}
+      {{str2html .Html}}
+  
+      <div>
+        {{.Pipe | htmlquote}}
+      </div>
+
+    <script src=/static/js/chunk-vendors.f50f9912.js>
+    </script>
+    <script src=/static/js/app.19d7e441.js>
+    </script>
+  </body>
+
+</html>
