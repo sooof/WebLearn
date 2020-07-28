@@ -1,28 +1,8 @@
-#define ZERO  0
-#define ONE   1
-#define TWO   2
-#define THREE 3
-#define FOUR  4
-
 // lib choose
-#if ZERO
-#define B_LIB_H 
-#else 
-#define B_GITHUB_LIB_H
-#endif
-
-#ifdef B_LIB_H
-#include "../lib/std_lib_facilities.h"
-#endif
-
-#ifdef B_GITHUB_LIB_H
-#include "../github.com/BjarneStroustrup/Programming-_Principles_and_Practice_Using_Cpp/std_lib_facilities.h"
-#endif
-
-
+#include "../lib/libch.h"
 
 // program part choose
-#define PART  THREE
+#define PART  FOUR
 
 
 
@@ -49,6 +29,28 @@ int main()
 #if PART == THREE
     cout << "Hello, This is PART " << PART << "\n";
     cout << "Please enter your first name and age \n";
+    string first_name = "???";
+    int age = -1;
+    cin >> first_name;
+    cin >> age;
+    cout << "Hello, " << first_name << " (age "<< age <<")\n"; 
+
+#endif
+
+#if PART == FOUR
+    cout << "Hello, This is PART " << PART << "\n";
+    cout << "Please enter a floating-point value: \n";
+    double n;
+    
+    cin >> n;
+    cout << "n == " << n 
+         << "\nn+1 == " << n+1 
+         << "\nthree time n== " << 3*n
+         << "\ntwice n == " << n+n
+         << "\nnhalf of n== " << n/2
+         << "\nsquared root of n == " << sqrt(n)
+         << '\n'; 
+
 #endif
 
 }
