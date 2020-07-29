@@ -1,0 +1,47 @@
+#enables colorin the terminal bash shell export
+export CLICOLOR=1
+
+#sets up thecolor scheme for list export
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
+#sets up theprompt color (currently a green similar to linux terminal)
+#export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
+export PS1='\[\033[01;32m\]\t_@\h\[\033[00m\]:\[\033[01;36m\]\W\[\033[00m\]\$ '
+#export PS1='\t_\w\$ 
+
+
+#enables colorfor iTerm
+export TERM=xterm-color
+
+#mysql 路径
+PATH=$PATH:/usr/local/mysql/bin
+
+#go 语言环境变量,测试用go env
+export GOPATH=/Users/raylea/Workspace/go
+export GOBIN=/Users/raylea/Workspace/go/bin
+export PATH=$PATH:$GOBIN
+alias ls='ls -G'
+
+#mongodb默认读取环境变量MGO
+echo 'export MGO="127.0.0.1"' 
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+export NVM_DIR="/Users/raylea/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/mysql/bin:/Users/raylea/Workspace/go/bin:~/Workspace/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/raylea/Workspace/google-cloud-sdk/path.bash.inc' ]; then source '/Users/raylea/Workspace/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/raylea/Workspace/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/raylea/Workspace/google-cloud-sdk/completion.bash.inc'; fi
+
+##
+# Your previous /Users/raylea/.bash_profile file was backed up as /Users/raylea/.bash_profile.macports-saved_2018-09-30_at_22:44:42
+##
+
+# MacPorts Installer addition on 2018-09-30_at_22:44:42: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

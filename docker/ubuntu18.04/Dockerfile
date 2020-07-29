@@ -13,8 +13,12 @@ RUN apt-get update > /dev/null 2> /dev/null
 RUN apt-get install -y build-essential > /dev/null 2> /dev/null
 RUN apt-get install -y cmake > /dev/null 2> /dev/null
 RUN apt-get install -y gdb gdbserver > /dev/null 2> /dev/null
-RUN apt-get install -y rsync > /dev/null 2> /dev/null # Clion 需要 rsync 同步数据
 RUN apt-get install -y git > /dev/null 2> /dev/null # git
+
+RUN apt-get install -y rsync > /dev/null 2> /dev/null # Clion 需要 rsync 同步数据
+RUN apt-get install -y rsync
+RUN sed -ri 's/RSYNC_ENABLE=false/RSYNC_ENABLE=true/g' /etc/default/rsync
+COPY rsync.conf /etc
 
 #vim ctags cscope vimrc 
 RUN apt-get install -y vim > /dev/null 2> /dev/null # vim
@@ -57,6 +61,9 @@ RUN apt-get install -y autojump > /dev/null 2> /dev/null
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+RUN mkdir /root/sync
+
+COPY entrypoint.sh /sbin
+RUN chmod +x /sbin/entrypoint.sh
+ENTRYPOINT [ "/sbin/entrypoint.sh" ]
 
