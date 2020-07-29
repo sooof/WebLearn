@@ -37,3 +37,6 @@ Deleted: sha256:e854b0f9912a3dc192486851c7ddad624bd39ea5f64e2463d59cf5b91d1ff764
 Deleted: sha256:87c5828f496137d019fd6c5f7eb27592b79f8b554abffa61a7178b63275f3df5
 Deleted: sha256:047b22bb7c76257c0b96a858d17ba3a7097925be8a2a667b5ec462eaf0501c00
 ```
+
+cp文件到docker image ， 79ee992a92b3为docker CONTAINER ID
+docker cp Dropbox/vimconf.tar  79ee992a92b3:/root/
