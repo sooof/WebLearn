@@ -1,0 +1,427 @@
+"===============================================================================
+
+"Filename:  ~/.vimrc
+
+"Author: 	liu gang
+
+"Email:		lgnice@sina.com
+
+"Homepage:	http://blog.csdn.net/sabalol
+
+"Created:	2008-1-18
+
+"===============================================================================
+
+set directory=/root/.vim/tmp_file
+
+"set directory=.,$TEMP
+
+set encoding=utf-8
+
+set guifont=Luxi\ Mono\ 9   " 设置字体，字体名称和字号
+
+set tabstop=4       " 设置tab键的宽度
+
+set backspace=2     " 设置退格键可用
+
+"set nu!             " 显示行号
+
+"set wrap           " 自动换行
+
+"set nowrap         " 不自动换行
+
+set linebreak       " 整词换行
+
+set whichwrap=b,s,<,>,[,]       " 光标从行首和行末时可以跳到另一行去
+
+"set list                       " 显示制表符
+
+"set listchars = tab:>-,trail:- " 将制表符显示为'>---',将行尾空格显示为'-'
+
+set listchars=tab:.\ ,trail:.   " 将制表符显示为'.   '
+
+"set autochdir                   " 自动设置目录为正在编辑的文件所在的目录
+
+set hidden          " 没有保存的缓冲区可以自动被隐藏
+
+set scrolloff=5 "光标上下两侧最少保留的屏幕行数。这使你工作时总有一些可见的上下文。
+
+set showcmd "在屏幕最后一行显示未完成的命令。
+
+set nobackup "编辑过程中不备份
+
+set history=50 "保存50个命令历史
+
+set mouse=a "在终端中使用鼠标
+
+"--------------------------------------------------------------------------------
+"
+"  查找/替换相关的设置
+"
+"--------------------------------------------------------------------------------
+
+set hlsearch        " 高亮显示搜索结果
+
+set incsearch       " 查询时非常方便，如要查找book单词，当输入到/b时，会自动找到
+                    " 第一个b开头的单词，当输入到/bo时，会自动找到第一个bo开头的
+                    " 单词，依次类推，进行查找时，使用此设置会快速找到答案，当你
+                    " 找要匹配的单词时，别忘记回车
+
+set gdefault        " 替换时所有的行内匹配都被替换，而不是只有第一个
+
+
+"--------------------------------------------------------------------------------
+"
+"  状态栏相关的设置
+"  
+"--------------------------------------------------------------------------------
+
+
+set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%] "状态栏的显示格式
+
+set laststatus=2    "总是显示一个状态栏
+
+set ruler           "总是显示光标的位置 
+
+"--------------------------------------------------------------------------------
+"
+"  编程相关的设置 
+"
+"--------------------------------------------------------------------------------
+
+set completeopt=longest,menu    " 关掉智能补全时的预览窗口
+
+filetype plugin indent on       " 加了这句才可以用智能补全
+
+"-- omnicppcomplete setting --
+" 按下F3自动补全代码，注意该映射语句后不能有其他字符，包括tab；否则按下F3会自动补全一些乱码
+imap <F3> <C-X><C-O>
+"按下F2根据头文件内关键字补全”
+imap <F2> <C-X><C-I>
+"set completeopt=menu,menuone " 关掉智能补全时的预览窗口
+let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype in popup window
+let OmniCpp_GlobalScopeSearch=1 " enable the global scope search
+let OmniCpp_DisplayMode=1 " Class scope completion mode: always show all members
+"let OmniCpp_DefaultNamespaces=["std"]
+let OmniCpp_ShowScopeInAbbr=1 " show scope in abbreviation and remove the last column
+let OmniCpp_ShowAccess=1
+
+
+"set tags=src/tags  "设置tags文件的路径
+
+syn on              " 打开语法高亮
+
+set showmatch       " 设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
+
+set smartindent     " 智能对齐方式
+
+set shiftwidth=4    " 换行时行间交错使用4个空格
+
+set autoindent      " 自动对齐
+
+set ai!             " 设置自动缩进
+
+"colorscheme evening "载入色彩方案evening 。它会在 'runtimepath' 里搜索
+			"colors/{name}.vim"，载入第一个找到的文件。
+
+
+"--------------------------------------------------------------------------------
+"
+"  代码折叠
+"
+"--------------------------------------------------------------------------------
+
+set foldmarker={{{,}}}	 "指定折叠标志
+set foldmarker={,}	 "指定折叠标志
+
+syntax region functionFold start="\(^\({\|\S.*{\)$\n\)\@<=\_[^}]" end="\(^{.*\)\@<!$\n\(^}\)\@=" transparent fold 
+
+syntax region commentFold start="/\*" end="\*/" transparent fold keepend 
+
+syntax region commentFold2 start="^\(^//.*$\n\)\@<!//.*\(\n//\)\@=$" end="^\(^//.*$\n\)\@<=//.*\(\n//\)\@!$" transparent fold keepend 
+
+"set foldmethod=marker	 "标志用于指定折叠。
+ 
+ set foldmethod=syntax   "语法高亮项目指定折叠。
+  
+  set foldlevel=100       "不要自动折叠
+   
+"set foldopen-=search   "不要打开折叠，当搜索进它里面时
+    
+"set foldopen-=undo     "不要打开折叠，当做撤销进它里面时
+     
+"set foldcolumn=4
+"如果非零，指定宽度的列在窗口的一侧显示，指示折叠的打开和关闭。最大值为12
+  
+
+"--------------------------------------------------------------------------------
+"
+"  模仿MS Windows中的快捷键
+"
+"--------------------------------------------------------------------------------
+"vmap <C-c> "yy		
+"复制 Ctrl+C
+
+"vmap <C-x> "yd		
+"剪切 Ctrl+X
+
+"nmap <C-v> "yp
+"粘贴 Ctrl+V
+
+"nmap <C-a> ggvG$
+"全选 Ctrl+A
+
+"--------------------------------------------------------------------------------
+"
+"  窗口操作的快捷键
+"
+"--------------------------------------------------------------------------------
+
+nmap wv     <C-w>v    
+"按  wv 垂直分割当前窗口
+
+nmap wc     <C-w>c    
+"按  wc 关闭当前窗口
+
+nmap ws     <C-w>s    
+"按  ws 水平分割当前窗口
+
+
+"--------------------------------------------------------------------------------
+"
+"  模仿MS Windows中的保存命令: Ctrl+S
+"
+"--------------------------------------------------------------------------------
+
+imap <C-s> <Esc>:wa<cr>i<Right>
+
+nmap <C-s> :wa<cr>
+
+"--------------------------------------------------------------------------------
+"
+"  其它设置
+"
+"--------------------------------------------------------------------------------
+
+"hi StatusLine ctermfg=blue ctermbg=gray term=none cterm=none
+
+"hi Statement ctermfg=blue cterm=none
+
+"hi Comment ctermfg=darkcyan cterm=none
+
+
+
+
+
+"###############################################################################
+"
+"  下面是插件设置 
+"
+"###############################################################################
+
+
+"--------------------------------------------------------------------------------
+"
+"  高效地浏览源码 -- 插件: TagList
+"  下载地址 	http://www.vim.org/scripts/script.php?script_id=273
+"  版本 	4.5
+"  安装 	在 ~/.vim 目录下解压taglist_xx.zip
+"  手册 	:help taglist.txt
+"
+"--------------------------------------------------------------------------------
+
+"let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'	"设置系统中ctags程序的位置
+
+let Tlist_Show_One_File = 1	 "不同时显示多个文件的tag,只显示当前文件的tag	
+
+let Tlist_Exit_onlyWindow = 1	"如果taglist窗口是最后一个窗口，则退出vim
+
+let Tlist_Use_Right_Window =1	"在右侧窗口中显示taglist窗口
+
+"let Tlist_GainFocus_On_ToggleOpen = 1 "使用TlistToggle打开taglist窗口时，
+"输入焦点在taglist窗口中
+
+"你在浏览TagList窗口时, 如果还不想让源码跳转, 但是想看看tag在源码中完整的表达,
+"可以将光标移到你想要看的tag上, 如图中上边黄色的方框, 然后按下空格键,"在下面的命令栏中, 如图下边黄色的方框, 会显示该tag在源码中完整的写法,
+"而不会跳转到源码处.
+
+
+
+"--------------------------------------------------------------------------------
+"
+"  cscope 配置
+"
+"--------------------------------------------------------------------------------
+"
+
+if has("cscope")
+
+" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+   set cscopetag
+
+   set csto=1   "先用tag查找，再用cscope数据库查找
+		       	"因为tag查找的结果会把最佳匹配放在第一位
+   set nocsverb
+
+       "加载当前目录的任何 cscope 数据库 
+   if filereadable("cscope.out")
+      cs add cscope.out  
+	
+	 "否则加载环境变量定义的数据库位置
+ 	elseif $CSCOPE_DB != ""
+	cs add $CSCOPE_DB
+	endif
+
+	set cscopeverbose
+
+	   nmap <C-/>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+       nmap <C-/>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+       nmap <C-/>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+       nmap <C-/>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+       nmap <C-/>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+       nmap <C-/>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+       nmap <C-/>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+  	   nmap <C-/>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
+
+
+endif
+
+
+
+
+
+
+"--------------------------------------------------------------------------------
+"
+" netrw 文件浏览器 :e <PATH>
+"
+"--------------------------------------------------------------------------------
+
+ "let g:netrw_winsize = 30       " 浏览器宽度
+
+
+
+"--------------------------------------------------------------------------------
+"
+" QuickFix          QuickFix 窗口
+"
+"--------------------------------------------------------------------------------
+
+"nmap <F6> :cn<cr>   " 切换到下一个结果
+
+"nmap <F7> :cp<cr>   " 切换到上一个结果
+
+
+
+
+
+ "--------------------------------------------------------------------------------
+ "
+ " WinManager :WMToggle   文件浏览器和窗口管理器 -- 插件: WinManager
+ "
+ "--------------------------------------------------------------------------------
+
+ let g:winManagerWindowLayout='FileExplorer|TagList'
+
+ "let g:winManagerWidth = 30
+
+ "let g:defaultExplorer = 0
+
+ "nmap <C-w><C-b> :BottomExplorerWindow<cr> " Ctrl+w切换到最下面一个窗格
+
+ "nmap <C-w><C-f> :FirstExplorerWindow<cr>   " 切换到最上面一个窗格
+
+  nmap wm :WMToggle<cr> 
+  "这是nomal模式的命令，不是Ex模式的
+
+
+ "--------------------------------------------------------------------------------
+ "
+ " MiniBufExp
+ "
+ "--------------------------------------------------------------------------------
+
+"let g:miniBufExplMapWindowNavVim = 1
+
+let g:miniBufExplMapWindowNavArrows = 1
+
+let g:miniBufExplMapCTabSwitchBufs = 1
+
+"let g:miniBufExplModSelTarget = 1
+
+
+
+"--------------------------------------------------------------------------------
+
+" Grep  在工程中查找 -- 插件: Grep
+
+"--------------------------------------------------------------------------------
+ 
+"直接按下<F2>键来查找光标所在的字符串
+
+"nnoremap <silent> <F2> :grep<CR>
+
+
+ "--------------------------------------------------------------------------------
+ "
+ " A  c/h文件间相互切换 -- 插件: A
+ "
+ "--------------------------------------------------------------------------------
+
+ nnoremap <silent> <F12> :A<CR>
+
+
+
+"--------------------------------------------------------------------------------
+"
+" NERD_commenter
+"
+"--------------------------------------------------------------------------------
+
+""let NERD_c_alt_style = 1    " 将C语言的注释符号改为//, 默认是/**/
+
+"nmap <F5> ,cc
+
+
+"--------------------------------------------------------------------------------
+
+" SuperTab :SuperTabHelp   加速你的补全 -- 插件: SuperTab
+
+"--------------------------------------------------------------------------------
+
+""let g:SuperTabRetainCompletionType = 2
+
+""let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+ 
+
+"--------------------------------------------------------------------------------
+
+" CVim :help csupport
+
+"--------------------------------------------------------------------------------
+
+""let g:C_Comments = "no"         " 用C++的注释风格
+
+""let g:C_BraceOnNewLine = "no"   " '{'是否独自一行
+
+""let g:C_AuthorName = "sooof"
+
+""let g:C_Project="F9"
+
+""let g:Cpp_Template_Function = "c-function-description"
+
+let g:C_TypeOfH = "c"           " *.h文件的文件类型是C还是C++
+
+ 
+
+"##################################################################
+
+"########################## End Of Vimrc ##########################
+
+"##################################################################
