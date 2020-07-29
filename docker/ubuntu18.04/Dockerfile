@@ -17,20 +17,20 @@ RUN apt-get install -y git > /dev/null 2> /dev/null # git
 
 RUN apt-get install -y rsync > /dev/null 2> /dev/null # Clion 需要 rsync 同步数据
 RUN apt-get install -y rsync
-ADD https://raw.githubusercontent.com/sooof/WebLearn/master/docker/ubuntu18.04/rsync.conf
 RUN sed -ri 's/RSYNC_ENABLE=false/RSYNC_ENABLE=true/g' /etc/default/rsync
 COPY rsync.conf /etc
 
-#vim ctags cscope vimrc
+
+#vim ctags cscope vimrc 
 RUN apt-get install -y vim > /dev/null 2> /dev/null # vim
 RUN apt-get install -y ctags cscope >  /dev/null 2> /dev/null #
 RUN mkdir /root/src
 WORKDIR /root/src
 ADD https://rfagora.s3.amazonaws.com/sooof/software/development/tools/VIM/VimConf/vimconf.tar ./
-ADD https://raw.githubusercontent.com/sooof/WebLearn/master/macconfig/vimrc
 RUN tar xf vimconf.tar && rm vimconf.tar
 WORKDIR /root/src/vimconf
 RUN tar xf vim.tar -C /root
+RUN rm /root/.vimrc
 COPY vimrc /root/.vimrc
 
 
@@ -66,7 +66,7 @@ RUN apt-get clean && \
 
 RUN mkdir /root/sync
 
-ADD https://raw.githubusercontent.com/sooof/WebLearn/master/docker/ubuntu18.04/entrypoint.sh
 COPY entrypoint.sh /sbin
 RUN chmod +x /sbin/entrypoint.sh
 ENTRYPOINT [ "/sbin/entrypoint.sh" ]
+
