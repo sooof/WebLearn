@@ -1,0 +1,13 @@
+# ~/.profile: executed by Bourne-compatible login shells.
+
+if [ "$BASH" ]; then
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+fi
+
+mesg n || true
+
+export GOPATH=~/WorkSpace/go/
+export GOBIN=~/WorkSpace/go/bin/
+export PATH=$PATH:$GOBIN:/usr/local/go-1.13/bin
