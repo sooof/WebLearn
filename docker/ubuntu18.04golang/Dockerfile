@@ -42,7 +42,7 @@ WORKDIR /root/Workspace/vimconf
 RUN tar xf vim.tar -C /root
 RUN rm /root/.vimrc
 COPY vimrc /root/.vimrc
-COPY profile /root/.profile
+#COPY profile /root/.profile
 
 #conf net ping
 RUN apt-get install -y  net-tools  > /dev/null 2> /dev/null # net-tools ,ifconfig
@@ -77,7 +77,7 @@ RUN apt-get install -y autojump > /dev/null 2> /dev/null
 # 并且这些缓存将占用不少空间，导致最终生成的image非常庞大，
 # 而这些垃圾文件是我们最终的image中无需使用到的东西，我们应当在Docker构建过程中予以删除。
 RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/Workspace/vimconf
 
 RUN mkdir /root/sync
 
