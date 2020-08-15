@@ -25,13 +25,14 @@
 
 
 // program part choose
-#define PART  TWO
+#define PART  ONE
 
-int main()
+int SAFE_MAIN(int argc, char* argv[])
+// int main(int argc, char* argv[])
 {
 #if PART == ONE
     cout << "Hello, This is PART " << PART << "\n";
-    cout << "Hello, World!\n";
+    std::cout << "Hello, World!\n";
 	return 0;
 #endif
 
