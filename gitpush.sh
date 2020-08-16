@@ -17,5 +17,5 @@ fi
 git commit -m "$commit"
 echo -e "5 > git push -u origin master. 将本地版本库推送到远程服务器\n"
 git push -u origin master
-echo -e "done.\n"
+echo -e "* > done !!!\n"
 exit 0;

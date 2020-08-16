@@ -25,7 +25,41 @@
 
 
 // program part choose
-#define PART  ONE
+#define PART  TWO
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> ans;
+        for(int i=0;i<nums.size();i++){
+              for(int j=i+1;j<nums.size();j++){
+                  if(nums[i]+nums[j]==target){
+                      ans.push_back(i);
+                      ans.push_back(j);
+                      return ans;
+                  }
+              }
+        }
+        return ans;
+    }
+
+    vector<int> twoSum1(vector<int>& nums, int target) {
+        
+    }
+    int test(vector<int>& nums) {
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); i++)
+            cout << nums[i] << " ";          //输出为1 2
+        return 0;
+    }
+    int result(vector<int>& result) {
+        vector<int> ans;
+        for (int i = 0; i < result.size(); i++)
+            cout << result[i] << " ";          //输出为1 2
+        return 0;
+    }
+};
+
 
 int SAFE_MAIN(int argc, char* argv[])
 // int main(int argc, char* argv[])
@@ -33,13 +67,34 @@ int SAFE_MAIN(int argc, char* argv[])
 #if PART == ONE
     cout << "Hello, This is PART " << PART << "\n";
     std::cout << "Hello, World!\n";
+    // twoSum();
+    vector<int> v = {1,2,3,4};
+    Solution m;
+    m.test(v);
+    cout << endl;
 	return 0;
 #endif
 
 #if PART == TWO
     cout << "Hello, This is PART " << PART << "\n";
     cout << "Hello, World!\n";
-    keep_window_open();
+    vector<int> v = {1, 2, 7, 11, 15};
+    Solution m;
+    int target= 9;
+    vector<int> res;
+    res=m.twoSum(v, target);
+    m.test(res);
+    // (m.twoSum(v, target));
+    return 0;
+#endif
+
+#if PART == THREE
+    cout << "Hello, This is PART " << PART << "\n";
+    cout << "Hello, World!\n";
+    vector<int> v = {1, 2, 7, 11, 15};
+    Solution m;
+    int target = 9;
+    m.twoSum(v, target);
     return 0;
 #endif
 }

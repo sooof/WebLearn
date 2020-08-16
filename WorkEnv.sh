@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "1 > mv 文件夹 back .\n"
+echo -e "1 > 恢复文件夹位置 .\n"
 cd go   && mv   ../../../gobak/* . && cd -
-echo -e "done.\n"
+echo -e "* > done !!!\n"
 exit 0;
