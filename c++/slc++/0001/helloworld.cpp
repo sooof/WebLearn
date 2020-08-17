@@ -1,6 +1,12 @@
-
-#define ONE   1
-#define TWO   2
+/*Convright:
+ *Filename:
+ *File tag:
+ *Function:
+ *Autor:
+ *Email:
+ *Date:
+ *Version:
+ */
 
 
 // lib choose

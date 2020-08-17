@@ -1,3 +1,13 @@
+/*Convright:
+ *Filename:
+ *File tag:
+ *Function:
+ *Autor:
+ *Email:
+ *Date:
+ *Version:
+ */
+
 // lib choose
 #include "../lib/libch.h"
 

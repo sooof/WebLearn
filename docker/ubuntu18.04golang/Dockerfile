@@ -45,6 +45,7 @@ COPY vimrc /root/.vimrc
 #COPY profile /root/.profile
 
 #conf net ping
+RUN apt-get update > /dev/null 2> /dev/null
 RUN apt-get install -y  net-tools  > /dev/null 2> /dev/null # net-tools ,ifconfig
 RUN apt-get install -y inetutils-ping > /dev/null 2> /dev/null# ping
 
