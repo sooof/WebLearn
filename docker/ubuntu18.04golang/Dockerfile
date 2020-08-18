@@ -40,14 +40,14 @@ ADD https://rfagora.s3.amazonaws.com/sooof/software/development/tools/VIM/VimCon
 RUN tar xf vimconf.tar && rm vimconf.tar
 WORKDIR /root/Workspace/vimconf
 RUN tar xf vim.tar -C /root
-RUN rm /root/.vimrc
+RUN rm -rf /root/.vimrc /root/Workspace/vimconf
 COPY vimrc /root/.vimrc
 #COPY profile /root/.profile
 
 #conf net ping
 RUN apt-get update > /dev/null 2> /dev/null
 RUN apt-get install -y  net-tools  > /dev/null 2> /dev/null # net-tools ,ifconfig
-RUN apt-get install -y inetutils-ping > /dev/null 2> /dev/null# ping
+RUN apt-get install -y inetutils-ping > /dev/null 2> /dev/null # ping
 
 # ssh服务器
 # 参考 https://github.com/rastasheep/ubuntu-sshd/blob/ed6fffcaf5a49eccdf821af31c1594e3c3061010/18.04/Dockerfile
@@ -78,7 +78,7 @@ RUN apt-get install -y autojump > /dev/null 2> /dev/null
 # 并且这些缓存将占用不少空间，导致最终生成的image非常庞大，
 # 而这些垃圾文件是我们最终的image中无需使用到的东西，我们应当在Docker构建过程中予以删除。
 RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/Workspace/vimconf
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN mkdir /root/sync
 

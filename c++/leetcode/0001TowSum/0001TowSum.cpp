@@ -89,7 +89,7 @@ vector<int> twoSum2(vector<int>& nums, int target) {
             if(hashmap[target-nums[i]]
             &&hashmap[target-nums[i]]!=i+1){
             //防止利用同个元素
-                ans.push_back(i);
+                ans.push_back(i);//在vector最后边加一个值
                 ans.push_back(hashmap[target-nums[i]]-1);
                 return ans;
             }

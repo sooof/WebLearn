@@ -1,4 +1,8 @@
 = WebLearn
+:toc:
+:toc-placement!:
+
+toc::[]
 
 
 下载：

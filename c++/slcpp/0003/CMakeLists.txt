@@ -5,14 +5,14 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Set the project name
-project (0002addTwoNumbers)
+project (0003)
 
 # Add an executable
-add_executable(0002addTwoNumbers 0002addTwoNumbers.cpp)
+add_executable(0003 0003.cpp)
 
 enable_testing()
-add_test (test_run 0002addTwoNumbers 5 2)
+add_test (test_run 0003 5 2)
 
 # 测试 1 + 3 , 是否输出打印'is 4'
-add_test (test_1_plus_3 0002addTwoNumbers 1 3)
+add_test (test_1_plus_3 0003 1 3)
 set_tests_properties (test_1_plus_3 PROPERTIES PASS_REGULAR_EXPRESSION "4")  

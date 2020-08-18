@@ -1,0 +1,80 @@
+= x3xx_fpga
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Llink
+
+- link:https://files.ettus.com/manual/md_usrp3_build_instructions.html[Generation 3 USRP Build Documentation]
+
+# Install
+
+* 1> 
+
+ cd fpga-master/usrp3/top/x300/
+ chmod  755 setupenv.sh
+
+* 2> 更新：
+
+- change setupenv.sh `VIVADO_VER to 2018.3`
+- change tools/scripts/setupenv_base.sh `VIVADO_HLS_BASE_PATH="/cygdrive/c/Xilinx/Vivado_HLS" to VIVADO_HLS_BASE_PATH="/cygdrive/c/Xilinx/Vivado_HLS"`
+
+* 3> 
+
+ fpga-master/usrp3/top/x300$ source ./setupenv.sh
+ fpga-master/usrp3/top/x300$ make X300_1G
+
+
+# Info
+[source,bash]
+----
+#!/bin/bash
+
+VIVADO_VER=2015.4   //change VIVADO_VER to 2018.3
+DISPLAY_NAME="USRP-X3x0"
+REPO_BASE_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+
+declare -A PRODUCT_ID_MAP
+PRODUCT_ID_MAP["X300"]="kintex7/xc7k325t/ffg900/-2"
+PRODUCT_ID_MAP["X310"]="kintex7/xc7k410t/ffg900/-2"
+
+source $REPO_BASE_PATH/tools/scripts/setupenv_base.sh
+----
+
+[source,bash]
+----
+beatlesm@beatlesm-virtual-machine:/mnt/hgfs/Software/Xilinx/fpga-master/usrp3/top/x300$ make help
+-------------------
+USRP X3X0 FPGA Help
+-------------------
+Usage:
+ make <Targets> <Options>
+
+Output:
+ build/usrp_<product>_fpga_<image_type>.bit:    Configuration bitstream with header
+ build/usrp_<product>_fpga_<image_type>.bin:    Configuration bitstream without header
+ build/usrp_<product>_fpga_<image_type>.lvbitx: Configuration bitstream for PCIe (NI-RIO)
+ build/usrp_<product>_fpga_<image_type>.rpt:    Build report (includes utilization and timing summary)
+
+Supported Targets
+-----------------
+all:      X300_HG X310_HG X300_XG X310_XG (Default target)
+X310_1G:  USRP X310. 1GigE on both SFP+ ports. DRAM TX FIFO (Experimental!).
+X300_1G:  USRP X300. 1GigE on both SFP+ ports. DRAM TX FIFO (Experimental!).
+X310_HG:  USRP X310. 1GigE on SFP+ Port0, 10Gig on SFP+ Port1. DRAM TX FIFO.
+X300_HG:  USRP X300. 1GigE on SFP+ Port0, 10Gig on SFP+ Port1. DRAM TX FIFO.
+X310_XG:  USRP X310. 10GigE on both SFP+ ports. DRAM TX FIFO.
+X300_XG:  USRP X300. 10GigE on both SFP+ ports. DRAM TX FIFO.
+X310_HA:  USRP X310. 1Gig on SFP+ Port0, Aurora on SFP+ Port1. DRAM TX FIFO (Experimental!).
+X300_HA:  USRP X300. 1Gig on SFP+ Port0, Aurora on SFP+ Port1. DRAM TX FIFO (Experimental!).
+X310_XA:  USRP X310. 10Gig on SFP+ Port0, Aurora on SFP+ Port1. DRAM TX FIFO (Experimental!).
+X300_XA:  USRP X300. 10Gig on SFP+ Port0, Aurora on SFP+ Port1. DRAM TX FIFO (Experimental!).
+clean:    Clean up all target build outputs.
+cleanall: Clean up all target and ip build outputs.
+help:     Show this help message.
+
+Supported Options
+-----------------
+GUI=1     Launch the build in the Vivado GUI.
+----

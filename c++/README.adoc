@@ -1,0 +1,27 @@
+= C++
+:toc:
+:toc-placement!:
+
+toc::[]
+
+# Introduction
+
+The directory included are
+
+  - link:leetcode[leetcode]. C++ problems.
+  - link:lib[lib]. C++ lib.
+  - link:slcpp[slcpp]. C++ problems.
+  - link:template.cpp[template.cpp]. C++ template.
+
+
+# Install lib
+[source,bash]
+----
+$chmod 755 getblib.sh
+$./getblib.sh
+----
+
+# Link
+
+  - link:https://github.com/ttroy50/cmake-examples[cmake-examples]. A hello world example.
+

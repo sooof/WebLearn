@@ -38,51 +38,51 @@ public:
 
     }
 
-    vector<int> addTwoNumbers2(vector<int>& nums, int target) {
+  vector<int> addTwoNumbers2(vector<int>& nums, int target) {
 
-ListNode *head, *curr;
-    head = curr = new ListNode(0);
-    bool carry = false;
+    // ListNode *head, *curr;
+        // head = curr = new ListNode(0);
+        // bool carry = false;
 
-    while (true)
-    {
-      ListNode* node  = new ListNode(0);
-      int       v1, v2;
+        // while (true)
+        // {
+          // ListNode* node  = new ListNode(0);
+          // int       v1, v2;
 
-      if (carry)
-        node->val = 1;
-      else
-        node->val = 0;
+          // if (carry)
+          //   node->val = 1;
+          // else
+          //   node->val = 0;
 
-      carry = false;
+          // carry = false;
 
-      if (l1 != NULL)
-      {
-        v1 = l1->val;
-        l1 = l1->next;
-      }
-      else
-        v1 = 0;
+          // if (l1 != NULL)
+          // {
+          //   v1 = l1->val;
+          //   l1 = l1->next;
+          // }
+          // else
+          //   v1 = 0;
 
-      if (l2 != NULL)
-      {
-        v2 = l2->val;
-        l2 = l2->next;
-      }
-      else
-        v2 = 0;
+          // if (l2 != NULL)
+          // {
+          //   v2 = l2->val;
+          //   l2 = l2->next;
+          // }
+          // else
+          //   v2 = 0;
 
-      carry     = (node->val + v1 + v2) / 10;
-      node->val = (node->val + v1 + v2) % 10;
+          // carry     = (node->val + v1 + v2) / 10;
+          // node->val = (node->val + v1 + v2) % 10;
 
-      curr->next = node;
-      curr       = node;
+          // curr->next = node;
+          // curr       = node;
 
-      if (l1 == NULL && l2 == NULL && !carry)
-        break;
-    }
+          // if (l1 == NULL && l2 == NULL && !carry)
+          //   break;
+        // }
 
-    return head->next;
+      // return head->next;
 
     }
 
