@@ -19,6 +19,7 @@
 
 #if B_LIB_H
 #include "../lib/std_lib_facilities.h"
+#include "../lib/safe_main.hpp"
 #endif
 
 #if B_GITHUB_LIB_H
