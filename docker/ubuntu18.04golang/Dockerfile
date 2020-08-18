@@ -26,9 +26,9 @@ WORKDIR /root/Workspace
 ADD https://dl.google.com/go/go1.13.9.linux-amd64.tar.gz ./
 RUN tar xf go1.13.9.linux-amd64.tar.gz && rm go1.13.9.linux-amd64.tar.gz
 RUN mv go /usr/local/go-1.13
-RUN mkdir -p go
-WORKDIR /root/Workspace/go
-RUN mkdir -p bin src doc lib pkg
+#RUN mkdir -p go
+#WORKDIR /root/Workspace/go
+#RUN mkdir -p bin src doc lib pkg
 
 
 
