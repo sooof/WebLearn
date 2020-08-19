@@ -1,4 +1,0 @@
-/root/Workspace/github/WebLearn/c++/slcpp/0003/build/CMakeFiles/edit_cache.dir
-/root/Workspace/github/WebLearn/c++/slcpp/0003/build/CMakeFiles/rebuild_cache.dir
-/root/Workspace/github/WebLearn/c++/slcpp/0003/build/CMakeFiles/0003.dir
-/root/Workspace/github/WebLearn/c++/slcpp/0003/build/CMakeFiles/test.dir

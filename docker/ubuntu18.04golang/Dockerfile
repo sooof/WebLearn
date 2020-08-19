@@ -32,7 +32,7 @@ RUN mv go /usr/local/go-1.13
 
 
 
-#vim ctags cscope vimrc 
+#vim ctags cscope vimrc
 RUN apt-get install -y vim > /dev/null 2> /dev/null # vim
 RUN apt-get install -y ctags cscope >  /dev/null 2> /dev/null #
 WORKDIR /root/Workspace
@@ -42,6 +42,7 @@ WORKDIR /root/Workspace/vimconf
 RUN tar xf vim.tar -C /root
 RUN rm -rf /root/.vimrc /root/Workspace/vimconf
 COPY vimrc /root/.vimrc
+WORKDIR /root/
 #COPY profile /root/.profile
 
 #conf net ping
@@ -78,11 +79,10 @@ RUN apt-get install -y autojump > /dev/null 2> /dev/null
 # 并且这些缓存将占用不少空间，导致最终生成的image非常庞大，
 # 而这些垃圾文件是我们最终的image中无需使用到的东西，我们应当在Docker构建过程中予以删除。
 RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /root/sync
 
 COPY entrypoint.sh /sbin
 RUN chmod +x /sbin/entrypoint.sh
 ENTRYPOINT [ "/sbin/entrypoint.sh" ]
-

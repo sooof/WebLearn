@@ -4,7 +4,7 @@ echo -e "1 > 删除当前目录的.DS_store.\n"
 find ../ -name .DS_Store -exec rm {} \;
 echo -e "2 > 删除\n"
 cd go   && mv bin doc lib pkg  ../../../gobak   && cd -
-rm -rf "./c++/github.com" "c++/leetcode/0001towSum/build" "c++/leetcode/0002addTwoNumbers/build"
+rm -rf "./c++/github.com" "c++/leetcode/0001towSum/build" "c++/leetcode/0002addTwoNumbers/build" "c++/slcpp/0003/build"
 echo -e "3 > git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录"
 git add .
 echo -e "4 > git commit -m ‘注释’ 将缓存区内容添加到本地仓库 \n"
