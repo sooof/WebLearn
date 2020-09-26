@@ -14,7 +14,25 @@
 
 using namespace std;
 // program part choose
-#define PART  ONE
+#define PART  THREE
+
+class Solution {
+    public:
+    int reverse(int x) {
+        int ans = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            // if (ans > Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 && pop > 7)) 
+            //     return 0;
+            // if (ans < Integer.MIN_VALUE / 10 || (ans == Integer.MIN_VALUE / 10 && pop < -8)) 
+            //     return 0;
+            ans = ans * 10 + pop;
+            x /= 10;
+        }
+        return ans;
+    }
+};
+
 
 void forEach(int a[], const int& len){
     for(int i =0; i < len; ++i)
@@ -56,8 +74,13 @@ int SAFE_MAIN(int argc, char* argv[])
 
 #if PART == THREE
     cout << "Hello, This is PART " << PART << "\n";
+   
+    // std::cout << 321%10 <<std::endl;
+    int v = 1234;
+    Solution m;
+    
+    std::cout << m.reverse(v) <<std::endl;
     cout << "Hello, World!\n";
-
     return 0;
 #endif
 }

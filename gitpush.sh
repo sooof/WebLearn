@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "1 > 删除当前目录的.DS_store.\n"
-find ../ -name .DS_Store -exec rm {} \;
+find ../ -name .DS_Store a.out exec rm {} \;
 echo -e "2 > 删除\n"
 cd go   && mv bin doc lib pkg  ../../../gobak   && cd -
 rm -rf "./c++/github.com" "c++/leetcode/0001towSum/build" "c++/leetcode/0002addTwoNumbers/build" "c++/slcpp/0003/build"
